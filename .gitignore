@@ -1,4 +1,6 @@
-.idea
+idea
 media
 node_modules
 *.zip
+api
+static
