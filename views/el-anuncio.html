@@ -1,0 +1,35 @@
+<div class="row">
+
+
+    <div class="three columns">
+        <img ng-src="{{ $ctrl.obtenerRutaImagen($ctrl.anuncio.photos[0]) }}"
+        width="100%"
+        height="100%">
+    </div>
+    <div class="nine columns">
+        <h4>{{ $ctrl.anuncio.name}}</h4>
+        <div
+                ng-bind-html="$ctrl.descriptionHtml">
+
+        </div>
+        <div>
+            <h5>Categoría: {{ $ctrl.anuncio.category.name }}</h5>
+        </div>
+        <div>
+            <h6>Usuario: {{ $ctrl.anuncio.seller.nick }}</h6>
+        </div>
+        <div>
+            <h6>Publicado: {{$ctrl.anuncio.published_date}}</h6>
+        </div>
+        <div>
+            <h6> Estado: {{ $ctrl.anuncio.state }} </h6>
+        </div>
+        <div>
+            <h5> Precio: {{ $ctrl.anuncio.price }} </h5>
+        </div>
+        <div>
+            <button class="button" ng-link="['MisAnuncios']">Volver</button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="twelve columns">
+
+        <table class="u-full-width">
+
+            <tbody>
+            <tr>
+                <td>
+                    <label for="filtro-nombre">
+                        Producto
+                    </label>
+                    <input id="filtro-nombre" type="text" ng-model="$ctrl.filtroAnuncios.nombre">
+                </td>
+                <td>
+                    <label for="filtro-categoria">
+                        Categoria
+                    </label>
+                    <select id="filtro-categoria" ng-model="$ctrl.filtroCategorias.nombre">
+                        <option value=" ">Todos</option>
+                        <option value="Películas">Películas</option>
+                        <option value="Libros">Libros</option>
+                        <option value="Videojuegos">Videojuegos</option>
+                    </select>
+                    <!--
+                    <input id="filtro-categoria" type="text" ng-model="$ctrl.filtroCategorias.nombre">
+                    -->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+
+        <table class="u-full-width">
+            <tbody>
+            <tr ng-repeat="anuncio in $ctrl.anuncios |
+                filter:$ctrl.filtroAnuncios.nombre |
+                filter:$ctrl.filtroCategorias.nombre">
+                <td>
+                    <a ng-link="['ElAnuncio',{id: anuncio.id}]">
+                    <img ng-src="{{ $ctrl.obtenerRutaImagen(anuncio.photos[0]) }}"
+                         width="60"
+                         height="60">
+                    </a>
+                </td>
+                <td>
+                    <div>
+                        {{ anuncio.name }}
+                    </div>
+                    <div>
+                        <small>
+                            {{ anuncio.category.name }}
+                        </small>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
