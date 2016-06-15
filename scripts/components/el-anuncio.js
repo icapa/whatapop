@@ -5,10 +5,10 @@ angular
         controller: function(ServicioAnuncios,$sce){
             var self = this;
 
-            self.idActivo="";
+
 
             self.$onInit = function() {
-
+                
             };
 
 
@@ -19,6 +19,7 @@ angular
                 ServicioAnuncios.obtenerInfoAnuncio(next.params.id).then(function(respuesta){
                     self.anuncio = respuesta.data;
                     self.descriptionHtml = $sce.trustAsHtml(self.anuncio.description);
+
                 });
             };
 

@@ -4,7 +4,8 @@ angular
         $routeConfig: [{
             name: "MisAnuncios",
             path: "/mis-anuncios",
-            component: "misAnuncios"
+            component: "misAnuncios",
+            useAsDefault: true
         },{
             name: "ElAnuncio",
             path: "/el-anuncio",

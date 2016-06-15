@@ -9,23 +9,30 @@
     <div class="nine columns">
         <h4>{{ $ctrl.anuncio.name}}</h4>
         <div
-                ng-bind-html="$ctrl.descriptionHtml">
+                ng-bind-html="::$ctrl.descriptionHtml">
 
         </div>
         <div>
+            <!--
             <h5>Categoría: {{ $ctrl.anuncio.category.name }}</h5>
+            -->
+
+            <img ng-src="{{ $ctrl.anuncio.category.name | FiltroCategoria }}"
+                width="50px"
+                 height="50px"
+            >
         </div>
         <div>
-            <h6>Usuario: {{ $ctrl.anuncio.seller.nick }}</h6>
+            <h6>Usuario: {{ ::$ctrl.anuncio.seller.nick }}</h6>
         </div>
         <div>
-            <h6>Publicado: {{$ctrl.anuncio.published_date}}</h6>
+            <h6>Publicado: {{ ::$ctrl.anuncio.published_date | date:'dd/MM/yyyy'}}</h6>
         </div>
         <div>
-            <h6> Estado: {{ $ctrl.anuncio.state }} </h6>
+            <h6> Estado: {{ ::$ctrl.anuncio.state }} </h6>
         </div>
         <div>
-            <h5> Precio: {{ $ctrl.anuncio.price }} </h5>
+            <h5> Precio: {{ ::$ctrl.anuncio.price | currency:"€ "}} </h5>
         </div>
         <div>
             <button class="button" ng-link="['MisAnuncios']">Volver</button>

@@ -9,7 +9,10 @@
                     <label for="filtro-nombre">
                         Producto
                     </label>
-                    <input id="filtro-nombre" type="text" ng-model="$ctrl.filtroAnuncios.nombre">
+                    <input id="filtro-nombre"
+                           type="text"
+                           ng-model-options="{debounce: 500}"
+                           ng-model="$ctrl.filtroAnuncios.nombre">
                 </td>
                 <td>
                     <label for="filtro-categoria">
