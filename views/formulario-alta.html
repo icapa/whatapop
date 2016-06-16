@@ -1,0 +1,55 @@
+<div xmlns="http://www.w3.org/1999/html">
+    <!-- El nombre -->
+    <label for="name-usuario">
+        Nombre:
+    </label>
+    <input
+        id="name-usuario"
+        type="text"
+        placeholder="Pe..Pepito"
+        required
+        ng-model="usuario.name"
+        class="u-full-width">
+
+    <label for="nick-usuario">
+        Nick:
+    </label>
+    <input
+        id="nick-usuario"
+        type="text"
+        placeholder="Pe..Pepe"
+        required
+        ng-model="usuario.nick"
+        class="u-full-width">
+    <label for="email-usuario">
+        Email:
+    </label>
+    <input
+        id="email-usuario"
+        type="text"
+        placeholder="Pe..Pepito@pepito.es"
+        required
+        ng-model="usuario.email"
+        class="u-full-width">
+    <label for="email2-usuario">
+        Repita Email:
+    </label>
+    <input
+        id="email2-usuario"
+        type="text"
+        placeholder="Pe.. Pepito@pepito.es"
+        required
+        ng-model="usuario.email2"
+        class="u-full-width">
+    <!-- El tema para validar el usuario -->
+    <h6 ng-show="!datosCorrectos()">
+        !! Introduzca todos los datos correctamente !!
+    </h6>
+    <button
+        class="u-full-width button-primary"
+        ng-click="guardarUsuario()"
+        ng-show="datosCorrectos()">
+        Guardar
+    </button>
+
+</div>

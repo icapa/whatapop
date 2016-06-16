@@ -28,6 +28,15 @@
                     <input id="filtro-categoria" type="text" ng-model="$ctrl.filtroCategorias.nombre">
                     -->
                 </td>
+                <td>
+                    <label for="filtro-distancia">
+                        Distancia
+                    </label>
+                    <input id="filtro-distancia"
+                           type="number"
+                           ng-model-options="{debounce:1000}"
+                           ng-model="$ctrl.filtroDistacia">
+                </td>
             </tr>
             </tbody>
         </table>
@@ -39,7 +48,8 @@
             <tbody>
             <tr ng-repeat="anuncio in $ctrl.anuncios |
                 filter:$ctrl.filtroAnuncios.nombre |
-                filter:$ctrl.filtroCategorias.nombre">
+                filter:$ctrl.filtroCategorias.nombre
+                ">
                 <td>
                     <a ng-link="['ElAnuncio',{id: anuncio.id}]">
                     <img ng-src="{{ $ctrl.obtenerRutaImagen(anuncio.photos[0]) }}"
@@ -54,6 +64,11 @@
                     <div>
                         <small>
                             {{ anuncio.category.name }}
+                        </small>
+                    </div>
+                    <div>
+                        <small>
+                            Distancia: {{ anuncio.distancia | number:1}} Km
                         </small>
                     </div>
                 </td>

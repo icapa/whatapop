@@ -1,6 +1,6 @@
 angular
     .module("whatapop",
-        ["ngComponentRouter"]
+        ["ngComponentRouter","dahr.ng-haversine"]
     );
 
 // Configuramos el proveedor "$locationProvider". Establecemos

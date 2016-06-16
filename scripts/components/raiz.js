@@ -10,6 +10,10 @@ angular
             name: "ElAnuncio",
             path: "/el-anuncio",
             component: "elAnuncio"
+        },{
+            name: "NuevoUsuario",
+            path: "/nuevo-usuario",
+            component: "nuevoUsuario"
         }],
         templateUrl: "views/raiz.html"
     });
