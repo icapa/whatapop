@@ -7,23 +7,27 @@
         </div>
     </div>
 
+
+
     <!-- La barra de navegacion -->
     <div class="row">
         <div class="twelve columns">
             <nav class="barra-navegacion">
                 <ul>
 
-                    <li>
-                        <a ng-link="['MisAnuncios']">Anuncios</a>
+                    <li ng-class="{ seleccionada: $ctrl.queClase()==='misAnuncios'}">
+                        <a ng-class="{ seleccionada: $ctrl.queClase()==='misAnuncios'}"
+                                 ng-link="['MisAnuncios']">
+                            Anuncios
+
+                        </a>
                     </li>
 
-                    <!--
-                    <li>
-                        <a ng-link="['ElAnuncio']">Preferencias</a>
-                    </li>
-                    -->
-                    <li>
-                        <a ng-link="['NuevoUsuario']">Usuarios</a>
+                    <li ng-class="{ seleccionada: $ctrl.queClase()==='nuevoUsuario'}">
+                        <a ng-class="{ seleccionada: $ctrl.queClase()==='nuevoUsuario'}"
+                                ng-link="['NuevoUsuario']">
+                            Usuarios
+                        </a>
                     </li>
                 </ul>
             </nav>

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="twelve columns">
+    <div class="twelve columns anuncios">
 
         <table class="u-full-width">
 
@@ -35,7 +35,7 @@
                     <input id="filtro-distancia"
                            type="number"
                            ng-model-options="{debounce:1000}"
-                           ng-model="$ctrl.filtroDistacia">
+                           ng-model="$ctrl.filtroDistancia.distancia">
                 </td>
             </tr>
             </tbody>
@@ -48,7 +48,9 @@
             <tbody>
             <tr ng-repeat="anuncio in $ctrl.anuncios |
                 filter:$ctrl.filtroAnuncios.nombre |
-                filter:$ctrl.filtroCategorias.nombre
+                filter:$ctrl.filtroCategorias.nombre |
+                filter:$ctrl.filtrarDistancia
+
                 ">
                 <td>
                     <a ng-link="['ElAnuncio',{id: anuncio.id}]">
@@ -71,6 +73,22 @@
                             Distancia: {{ anuncio.distancia | number:1}} Km
                         </small>
                     </div>
+                </td>
+                <td>
+
+                    <img
+                        ng-show="$ctrl.esFavorito(anuncio)"
+                        ng-src="static/images/favorito.jpeg"
+                        ng-click="$ctrl.subeFavorito(anuncio,false)"
+                        width="60" height="60">
+
+
+                    <button
+                        ng-click= "$ctrl.subeFavorito(anuncio,true)"
+                        ng-hide=" $ctrl.esFavorito(anuncio)"
+                        >
+                        Añadir a favoritos
+                    </button>
                 </td>
             </tr>
             </tbody>

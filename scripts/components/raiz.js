@@ -1,6 +1,8 @@
 angular
     .module("whatapop")
     .component("raiz",{
+
+
         $routeConfig: [{
             name: "MisAnuncios",
             path: "/mis-anuncios",
@@ -15,5 +17,16 @@ angular
             path: "/nuevo-usuario",
             component: "nuevoUsuario"
         }],
-        templateUrl: "views/raiz.html"
+        templateUrl: "views/raiz.html",
+
+        controller: function($rootRouter){
+            var self=this;
+
+            self.queClase = function(){
+                if ($rootRouter._childRouter.hostComponent==='elAnuncio'){
+                    return "misAnuncios"
+                }
+                return $rootRouter._childRouter.hostComponent;
+            }
+        }
     });

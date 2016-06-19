@@ -5,14 +5,14 @@ angular
             $router:"<"
         },
         templateUrl: "views/mis-anuncios.html",
-        controller: function (ServicioAnuncios,ServicioUsuarios,$haversine) {
+        controller: function (ServicioAnuncios,ServicioUsuarios,$haversine,ServicioStorage) {
 
             var self = this;
 
             self.miPosicion=undefined;
 
             self.filtroDistancia={
-                distancia: 1000000000
+                distancia: undefined
             };
             
             self.filtroAnuncios = {
@@ -24,13 +24,18 @@ angular
             };
 
             self.$onInit = function(){
+                //ServicioStorage.borraTodo();
+
+                ServicioStorage.leeFavoritos();
 
                 ServicioAnuncios.obtenerAnuncios().then(function(respuesta){
                     self.anuncios = respuesta.data;
                 });
+                /*
                 ServicioUsuarios.devuelveUsuario(1).then(function(respuesta){
                     console.log("Puto usuario:"+ respuesta.data.email);
                 });
+                */
 
 
                 self.cargaPosicion();
@@ -86,11 +91,36 @@ angular
                         iActual=iActual+1;
                         if (iActual<self.anuncios.length){
                             self.recursivaUsuarios(iActual);
-                        }else
-                        {
-                            console.log("Estan todos....BIEN !!!!!");
                         }
                     });
+            }
+
+            // Filtro para el tema de la distancia
+            self.filtrarDistancia = function(dist){
+                if(self.filtroDistancia.distancia===undefined || self.filtroDistancia.distancia===null){
+                    return true;
+                }
+                if (dist.distancia===undefined || dist.distancia===null || dist===""){
+                    return true;    // No se filtra
+                }
+
+
+                else{
+                    if (dist.distancia<=self.filtroDistancia.distancia){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+            }
+
+            self.esFavorito = function(anuncio){
+                // Aqui es la lógica de si es favorito o no
+                return ServicioStorage.esFavorito(anuncio.id);
+            }
+            self.subeFavorito = function(anuncio,estado){
+                ServicioStorage.guardaFavorito(anuncio.id,estado);
             }
 
         }
