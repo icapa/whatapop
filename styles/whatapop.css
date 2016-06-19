@@ -38,7 +38,8 @@
     border-top: 1px solid #1eaedb;
     border-left: 1px solid #1eaedb;
     border-right: 1px solid #1eaedb;
-    border-radius: 15px 15px 0px 0px;
+    border-bottom: 1px solid #1eaedb;
+    border-radius: 15px 15px 15px 15px;
     padding: 2em;
     box-shadow: -10px -10px 10px #1eaedb;
 
